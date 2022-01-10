@@ -1,0 +1,76 @@
+{
+  "name": "schedule",
+  "version": "1.0.0",
+  "main": "./main/main.js",
+  "repository": "https://github.com/yohostarrynight/schedule.git",
+  "author": "yohostarrynight <yohostarrynight@gmail.com>",
+  "license": "MIT",
+  "description": "schedule",
+  "scripts": {
+    "start:react": "cross-env NODE_ENV=development webpack server --config ./config/webpack.dev.js",
+    "start:electron": "cross-env NODE_ENV=development electron .",
+    "start": "yarn start:react & wait-on http://localhost:3000 && yarn start:electron",
+    "build:react": "cross-env NODE_ENV=production webpack --config ./config/webpack.prod.js",
+    "build:electron": "electron-builder",
+    "debug:electron": "cross-env NODE_ENV=development electron --inspect-brk=5858 .",
+    "lint": "eslint -c .eslintrc.js --ext .ts,.tsx,.js src",
+    "prepare": "husky install"
+  },
+  "build": {
+    "appId": "electron",
+    "productName": "Electron-test",
+    "copyright": "仅用于测试",
+    "compression": "maximum",
+    "directories": {
+      "output": "build"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": [
+      "eslint --config .eslintrc.js"
+    ],
+    "*.{ts,tsx,js,json,html,md}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^16.0.1",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@types/react": "^17.0.38",
+    "@types/react-dom": "^17.0.11",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
+    "copy-webpack-plugin": "^10.2.0",
+    "cross-env": "^7.0.3",
+    "css-loader": "^6.5.1",
+    "electron": "16.0.6",
+    "electron-builder": "^22.14.5",
+    "eslint": "^8.6.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "html-webpack-plugin": "^5.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.5",
+    "prettier": "^2.5.1",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.0",
+    "ts-loader": "^9.2.6",
+    "typescript": "^4.5.4",
+    "wait-on": "^6.0.0",
+    "webpack": "^5.65.0",
+    "webpack-bundle-analyzer": "^4.5.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.7.2",
+    "webpack-merge": "^5.8.0",
+    "webpackbar": "^5.0.2"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
