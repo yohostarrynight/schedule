@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackBar = require('webpackbar');
 
 module.exports = {
+  // target: 'electron-renderer',
   entry: {
     app: path.resolve(__dirname, '../src/index.tsx'),
   },
@@ -40,6 +41,7 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, '../dist'),
+    publicPath: '/',
     clean: true,
   },
 };

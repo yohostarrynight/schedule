@@ -9,6 +9,7 @@ module.exports = merge(common, {
     port: SERVER_PORT,
     hot: true,
     compress: true, // gzip压缩
+    historyApiFallback: true,
     client: {
       logging: 'verbose',
       overlay: true,
